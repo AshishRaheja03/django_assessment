@@ -1,0 +1,9 @@
+{% if error_msg %}
+<p>{{error_msg}}</p>
+{% endif %}
+<form action="" method="post">
+    {% csrf_token %}
+    {{ login_form.as_p }}
+    <button type="submit">Login</button>
+</form>
+<a href="{% url 'signup' %}"><button>SIGNUP</button></a>

@@ -1,0 +1,14 @@
+{{user}}
+
+{% for ques, answers in question_answers.items %}
+{{ques.1}} {% for ans in answers %}{{ans}}{% endfor %}
+<form action={% url 'main' request.user %} method="post">
+    {% csrf_token %}
+    <input type="text" name="answer" id={{ques.0}}>
+    <button type="submit" name="ques_id" value={{ques.0}}>Answer</button>
+</form>
+
+{% if success_msg %}success_msg{% endif %}
+
+{% endfor %}
+<a href="{% url 'logout' %}">LOGOUT</a>
